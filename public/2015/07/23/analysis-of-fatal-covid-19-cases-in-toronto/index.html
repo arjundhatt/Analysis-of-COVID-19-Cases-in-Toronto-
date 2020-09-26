@@ -146,7 +146,8 @@ covid_statistics &lt;- covid_resources %&gt;%
   get_resource()
 
 covid_statistics_sample &lt;- head(covid_statistics,4)
-covid_statistics_sample &lt;- subset(covid_statistics_sample, select =c(1,2,4,12))
+covid_statistics_sample &lt;-
+  subset(covid_statistics_sample, select =c(1,2,4,12))
 
 covid_statistics_sample
 ## # A tibble: 4 x 4
@@ -170,13 +171,23 @@ library(ggplot2)
 #distribution of age  group 
 agegroup&lt;-covid_statistics$`Age Group`  
 ggplot(data=covid_statistics, aes(agegroup)) + 
-  geom_histogram(stat=&quot;count&quot;) +scale_x_discrete(labels = c(&#39;&lt;=19&#39;,&#39;20 to 29&#39;,&#39;30 to 39&#39;,&#39;40 to 49&#39;, &#39;50 to 59&#39;, &#39;60 to 69&#39;, &#39;70 to 79&#39;,&#39;80 to 89&#39;,&#39;90+&#39;, &#39;Unknown&#39;)) + ggtitle(&quot;Age Group of COVID-19 Cases&quot;) + xlab(&quot;Age Group&quot;) + ylab(&quot;Cases&quot;)
+  geom_histogram(stat=&quot;count&quot;) +
+  scale_x_discrete(labels = c(&#39;&lt;=19&#39;,&#39;20 to 29&#39;,
+                              &#39;30 to 39&#39;,&#39;40 to 49&#39;,
+                              &#39;50 to 59&#39;, &#39;60 to 69&#39;
+                              , &#39;70 to 79&#39;,
+                              &#39;80 to 89&#39;,&#39;90+&#39;,
+                              &#39;Unknown&#39;)) +
+  ggtitle(&quot;Age Group of COVID-19 Cases&quot;) +
+  xlab(&quot;Age Group&quot;) + ylab(&quot;Cases&quot;)
 ## Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
 <p>Figure 2</p>
 <pre class="r"><code>#distribution of outcome
 outcome &lt;- covid_statistics$Outcome
 ggplot(data=covid_statistics, aes(outcome)) + 
-  geom_histogram(stat=&quot;count&quot;) + ggtitle(&quot;Outcome of COVID-19 Cases&quot;) + xlab(&quot;Outcome&quot;) + ylab(&quot;Count&quot;)
+  geom_histogram(stat=&quot;count&quot;) + 
+  ggtitle(&quot;Outcome of COVID-19 Cases&quot;) + 
+  xlab(&quot;Outcome&quot;) + ylab(&quot;Count&quot;)
 ## Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
 <p>Figure 3</p>
 <pre class="r"><code>#filtering fatal outcomes
@@ -185,7 +196,15 @@ fataldata &lt;- subset(covid_statistics, outcome == &#39;FATAL&#39;)
 #distribution of age groups in fatal outcomes only 
 ageoffatal &lt;- fataldata$`Age Group`
 ggplot(data=fataldata, aes(ageoffatal)) + 
-  geom_histogram(stat=&quot;count&quot;) +scale_x_discrete(labels = c(&#39;&lt;=19&#39;,&#39;20 to 29&#39;,&#39;30 to 39&#39;,&#39;40 to 49&#39;, &#39;50 to 59&#39;, &#39;60 to 69&#39;, &#39;70 to 79&#39;,&#39;80 to 89&#39;,&#39;90+&#39;, &#39;Unknown&#39;)) + ggtitle(&quot;Age Group of COVID-19 Cases&quot;) + xlab(&quot;Age Group&quot;) + ylab(&quot;Cases&quot;)
+  geom_histogram(stat=&quot;count&quot;) +
+  scale_x_discrete(labels = c(&#39;&lt;=19&#39;,
+                              &#39;20 to 29&#39;,&#39;30 to 39&#39;,
+                              &#39;40 to 49&#39;, &#39;50 to 59&#39;,
+                              &#39;60 to 69&#39;, &#39;70 to 79&#39;,
+                              &#39;80 to 89&#39;,&#39;90+&#39;,
+                              &#39;Unknown&#39;)) + 
+  ggtitle(&quot;Age Group of COVID-19 Cases&quot;) + 
+  xlab(&quot;Age Group&quot;) + ylab(&quot;Cases&quot;)
 ## Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
 </div>
 <div id="references" class="section level1 unnumbered">
