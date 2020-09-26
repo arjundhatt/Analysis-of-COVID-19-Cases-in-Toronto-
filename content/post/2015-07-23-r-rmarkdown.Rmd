@@ -12,6 +12,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 By: Arjun Dhatt 
+Date: September 27th, 2020
  
 # Abstract
  
