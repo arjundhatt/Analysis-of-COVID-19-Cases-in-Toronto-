@@ -1,7 +1,7 @@
 ---
 title: "Analysis of Fatal COVID-19 Cases in Toronto"
 author: "Arjun Dhatt"
-date: 2020-09-24T21:13:14-05:00
+date: 2015-07-23T21:13:14-05:00
 bibliography: "references.bib"
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
@@ -12,8 +12,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
  
 By: Arjun Dhatt 
-
-Date: September 27th, 2020 
+Date: September 27th, 2020
  
 # Abstract
  

@@ -1,7 +1,7 @@
 ---
 title: "Analysis of Fatal COVID-19 Cases in Toronto"
 author: "Arjun Dhatt"
-date: 9/27/2020
+date: 2016-07-23T21:13:14-05:00
 bibliography: "references.bib"
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
@@ -141,7 +141,8 @@ covid_statistics <- covid_resources %>%
   get_resource()
 
 covid_statistics_sample <- head(covid_statistics,4)
-covid_statistics_sample <- subset(covid_statistics_sample, select =c(1,2,4,12))
+covid_statistics_sample <- subset(covid_statistics_sample,
+select =c(1,2,4,12))
 
 covid_statistics_sample
 ```
