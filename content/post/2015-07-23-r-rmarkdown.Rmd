@@ -21,8 +21,10 @@ In this analysis, I will be looking at COVID-19 data in the city of Toronto to i
 
 The COVID-19 pandemic has affected the entire world in many different ways. In particular, the COVID-19 virus has severely affected the older population causing many deaths around the world. I wanted to investigate this issue  by analyzing COVID-19 data in the city of Toronto. 
 
-The purpose of this analysis is to identify trends in the fatal cases of COVID-19 in Toronto. Before beginning the analysis, I wanted to see whether the older population is really more at risk from COVID-19 compared to the younger population. Using data from the city of Toronto, I wanted to observe the distribution of age groups among the fatal COVID-19 cases in Toronto. 
-To begin the analysis, I used the opendatatoronto (@citeopendatatoronto) package to download COVID-19 related data in the city of Toronto. After downloading the package, I looked at the age groups for all COVID-19 cases — including those that did not result in fatalities — to get an idea of the age groups that were most exposed to the virus. I visualized the data by creating histograms with the ggplot 2 package (@citeggplot2). I found that the population aged 20-60 was most exposed to the virus, while those younger than 20 or older than 60 had been less exposed. I then compared the results to the age groups for  fatal cases to identify any differences in the distribution of cases. I found that the distributions varied drastically because fatal cases were much more common in the older population compared to the younger population. 
+The purpose of this analysis is to identify trends in the fatal cases of COVID-19 in Toronto. Before beginning the analysis, I wanted to know whether the older population is really more at risk from COVID-19 compared to the younger population. Using data from the city of Toronto, I wanted to observe the distribution of age groups among the fatal COVID-19 cases in Toronto. 
+To begin the analysis, I used the opendatatoronto (@citeopendatatoronto) package to download COVID-19 related data in the city of Toronto. After downloading the package, I looked at the age groups for all COVID-19 cases — including those that did not result in fatalities — to get an idea of the age groups that were most exposed to the virus. I visualized the data by creating histograms with the ggplot 2 package (@citeggplot2). 
+
+I found that the population aged 20-60 was most exposed to the virus, while those younger than 20 or older than 60 had been less exposed. I then compared the results to the age groups for  fatal cases to identify any differences in the distribution of cases. I found that the distributions varied drastically because fatal cases were much more common in the older population compared to the younger population. 
 
 This finding is important because it shows that the virus is more fatal for the older population compared to the younger population. This information also helps determine the allocation of resources to ensure that the older population is well cared for.
 
@@ -105,7 +107,7 @@ In Figure 2, we can see that most of the cases are resolved, and in comparison t
 
 In order to see which age groups have the most fatalities from the virus, I will start by filtering the dataset so that it only contains cases that resulted in a fatal outcome. With the fatal-filtered dataset, I want to observe the distribution of the age groups. Because COVID-19 is more common in the population aged 20-60 and less common in the population older than 60 , I expect a similar distribution in the fatal cases. 
 
-Below is a histogram created from the filtered dataset  to see the distribution of age groups in the fatal cases of COVID-19: 
+Below is a histogram created from the fatal-filtered dataset to see the distribution of age groups in the fatal cases of COVID-19: 
 
 Figure 3
 ```{r, tidy =FALSE, echo =FALSE, warning= FALSE}
@@ -115,7 +117,7 @@ fataldata <- subset(covid_statistics, outcome == 'FATAL')
 #distribution of age groups in fatal outcomes only 
 ageoffatal <- fataldata$`Age Group`
 ggplot(data=fataldata, aes(ageoffatal)) + 
-  geom_histogram(stat="count") +scale_x_discrete(labels = c('<=19','20 to 29','30 to 39','40 to 49', '50 to 59', '60 to 69', '70 to 79','80 to 89','90+', 'Unknown')) + ggtitle("Age Group of COVID-19 Cases") + xlab("Age Group") + ylab("Cases")
+  geom_histogram(stat="count") +scale_x_discrete(labels = c('<=19','20 to 29','30 to 39','40 to 49', '50 to 59', '60 to 69', '70 to 79','80 to 89','90+', 'Unknown')) + ggtitle("Age Group of Fatal COVID-19 Cases") + xlab("Age Group") + ylab("Cases")
 ```
 
 In Figure 3, suprisingly, most of the fatal cases are in the older population. Because the height of the bar increases as the age group increases, we can see that the virus is much more severe as you grow older. After expecting to see a distribution similiar to Figure 1, I was surprised to see there are no cases in the population younger than 40. I was also shocked to see how much the distributions differ between all cases and only fatal cases. 
@@ -199,8 +201,12 @@ ggplot(data=fataldata, aes(ageoffatal)) +
                               '60 to 69', '70 to 79',
                               '80 to 89','90+',
                               'Unknown')) + 
-  ggtitle("Age Group of COVID-19 Cases") + 
+  ggtitle("Age Group of Fatal COVID-19 Cases") + 
   xlab("Age Group") + ylab("Cases")
 ```
+
+Code and data supporting this analysis is available in the following Github repo: https://github.com/arjundhatt/Analysis-of-COVID-19-Cases-in-Toronto-
+
+Under: Analysis-of-COVID-19-Cases-in-Toronto- -> content -> post ->2015-07-23-r-rmarkdown.Rmd
 
 # References 
